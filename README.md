@@ -1,34 +1,24 @@
-**************
 * What's this?
-**************
 
 This software "occucal" is a C implementation of NVIDIA's "CUDA Occupancy Calculator". Most of codes and data in occucal are referenced from the NVIDIA's original Excel spreadsheet, that is, CUDA_occupancy_calculator.xls (Version 5.1).
 
-**************
 * Compile
-**************
 
 gcc -std=c99 -o occucal main.c -lm
 
-**************
 * Run
-**************
 
 ./occucal (compute capability *) (shared memory size config in bytes **) (threads per block) (registers per thread) (shared memory per block in bytes)
 
  * Set '12' if your compute cabpability is 1.2, for example.
 ** Set '49152', '16384', or '32768'. [NOTE: This parameter has been newly added.]
 
-**************
 * Output 
-**************
 
 - STDOUT: "number of active warps per SM", "occupancy of warps per SM [%]", "utilisation of registers per SM [%]" and "utilisation of shared memory per SM [%]". 
 - STDERR: The information that the original spreadsheet provides except for the graphs. The message can be suppressed by giving QUIET option. 
 
-**************
 * Example
-**************
 
 $ ./occucal 20 16384 64 32 2048  <-- Run
 
@@ -71,13 +61,6 @@ $ ./occucal 20 16384 64 32 2048  <-- Run
 
 16 33.0 50.0 100.0  <--- Output to STDOUT
 
-**************
 * Remark
-**************
 
 This software comes with no warranty.
-
-- --
-Toru Takahashi
-May 8, 2015
-
